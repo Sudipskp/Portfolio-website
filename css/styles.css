@@ -185,6 +185,11 @@ nav {
   color: var(--title-color);
   cursor: pointer;
 }
+
+.nav__logo img{
+  height: 25px;
+}
+
 /* Navigation for mobile devices */
 @media screen and (max-width: 1020px) {
   .nav__menu {
@@ -377,6 +382,45 @@ nav {
   color: var(--first-color);
 }
 
+
+/*=============== SERVICES ===============*/
+.services__container{
+  row-gap: 2rem;
+  padding-block: 1rem;
+}
+
+.services__card{
+  text-align: center;
+  background-color: var(--container-color);
+  padding: 3rem 1.25rem;
+  border-radius: 1rem;
+  border: 2px solid var(--container-color);
+  transition: border .4s;
+}
+
+.services__icon{
+  display: block;
+  font-size: 4rem;
+  color: var(--first-color);
+  margin-bottom: .75rem;
+}
+
+.services__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.services__card:hover{
+  border: 2px solid var(--first-color);
+}
+
+
+
+
+
+
+
+
 /*=============== PROJECTS ===============*/
 .projects {
   background-color: var(--container-color);
@@ -518,6 +562,13 @@ nav {
   font-size: var(--small-font-size);
   margin-top: 2rem;
 }
+
+.footer__title img{
+  height: 25px;
+}
+
+
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar{
   width: 0.6rem;
@@ -560,7 +611,7 @@ nav {
   .container{
     margin-inline:1rem ;
   }
-
+ 
   .skills__content{
     grid-template-columns: max-content;
     row-gap: 1rem;
@@ -568,17 +619,30 @@ nav {
   .services__card{
     padding-block:1.5rem;
   }
+ 
+}
+/*---------- logo------------*/
+@media screen and (max-width:576px){
+  .nav__logo img{
+    height: 20px;
+  }
+  .footer__title img{
+    height: 20px;
+  }
 }
 /* For medium devices */
 @media screen and (min-width:576px){
   .home__container,
   .about__container,
   .skills__container,
+  .services__container,
   .projects__container,
   .contact__container{
     grid-template-columns: 360px;
     justify-content: center;
   }
+
+ 
 }
 @media screen and (min-width:768px) {
   .nav__menu{
@@ -607,9 +671,20 @@ nav {
   .about__data{
     order: 1;
   }
+
+  .services__container,
   .projects__container{
     grid-template-columns: repeat(2, 352px);
   }
+
+  
+}
+
+
+
+.home__image {
+  justify-content: center;
+  padding-left: 10px;
 }
 /* For large devices */
 @media screen and (min-width:1023px){
@@ -690,6 +765,14 @@ nav {
   .skills__item{
     font-size: var(--h3-font-size);
   }
+  .services__container{
+    grid-template-columns: repeat(3,352px);
+    padding-block: 2.5rem 4rem;
+  }
+  .services__card{
+    padding: 3.5rem 2rem;
+  }
+
   .projects__container{
     grid-template-columns: repeat(3, 350px);
     row-gap: 3rem;

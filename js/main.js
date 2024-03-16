@@ -109,6 +109,7 @@ sr.reveal(`.home__data, .home__social, .contact__container, .footer__container`)
 sr.reveal(`.home__image`, {origin: 'buttom'})
 sr.reveal(`.about__data, .skills__data`, {origin: 'left'})
 sr.reveal(`.about__image, .skills__content`, {origin:'right'})
+sr.reveal(`.services__card`, {interval:100})
 sr.reveal(`.projects, .projects__card`, {interval: 100})
 
 
