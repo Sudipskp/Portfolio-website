@@ -422,69 +422,146 @@ nav {
 
 
 /*=============== PROJECTS ===============*/
-.projects {
-  background-color: var(--container-color);
-}
-.projects__container {
-  row-gap: 2rem;
-  justify-content: center;
-  padding-block: 1rem;
-}
-.projects__card {
-  position: relative;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-.projects__img {
-  width: 100%;
-  height: 100%;
-}
-.projects__modal {
-  position: absolute;
-  left: 0;
-  bottom: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    hsla(0, 0%, 0%, 0) 0%,
-    hsla(var(--hue), 70%, 40%, 0.8) 120%
-  );
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: bottom .4s;
-}
-.projects__subtitle,
-.projects__button{
-  color: var(--title-color);
-  font-size: var(--small-font-size);
-}
-.projects__subtitle{
-  display: block;
-  margin-bottom: .25rem;
-}
+ /* Tabs */
+    .projects__tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
 
-.projects__title{
-  font-size: var(--h2-font-size);
-  margin-bottom:.75rem ;
-}
-.projects__button{
-  display: flex;
-  align-items: center;
-  column-gap:.5rem;
-  font-weight: var(--font-medium);
-}
-.projects__button i{
-  font-size: 1.25rem;
-}
-.projects__card:hover .projects__modal{
-  bottom: 0;
-}
+    .projects__tab {
+      background: transparent;
+      border: 0.5px solid var(--first-color);
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.5rem;
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.95rem;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+
+    .projects__tab:hover,
+    .projects__tab.active {
+      background: var(--first-color);
+      color: #000;
+    }
+
+    /* Projects */
+    .projects {
+      background-color: var(--container-color);
+    }
+
+    .projects__container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 cards on desktop */
+      gap: 1.5rem;
+      justify-content: center;
+      padding-block: 1rem;
+    }
+
+    .projects__card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .projects__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .projects__modal {
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        hsla(0, 0%, 0%, 0) 0%,
+        hsla(0, 46%, 47%, 0.868) 120%
+      );
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: bottom .4s;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .projects__subtitle,
+    .projects__button {
+      color: #fff;
+      font-size: var(--small-font-size);
+    }
+
+    .projects__subtitle {
+      display: block;
+      margin-bottom: .25rem;
+    }
+
+    .projects__title {
+      font-size: var(--h2-font-size);
+      margin-bottom: .75rem;
+      color: #fff;
+    }
+
+    .projects__button {
+      display: inline-flex;
+      align-items: center;
+      column-gap: .5rem;
+      font-weight: var(--font-medium);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.3rem;
+      transition: 0.3s;
+    }
+
+    .projects__button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .projects__button i {
+      font-size: 1.25rem;
+    }
+
+    .projects__card:hover .projects__modal {
+      bottom: 0;
+    }
+
+    /* Tablet: 2 columns */
+    @media (max-width: 992px) {
+      .projects__container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile: 1 column */
+    @media (max-width: 576px) {
+      .projects__container {
+        grid-template-columns: 1fr;
+      }
+      .projects__img {
+        height: 160px;
+      }
+      .projects__tab {
+        flex: 1 1 100%;
+        font-size: 0.9rem;
+      }
+    }
 /*=============== CONTACT ===============*/
 .contact__container{
   padding-right: 1rem;
@@ -507,7 +584,7 @@ nav {
   color: var(--text-color);
 }
 .contact__form textarea{
-  height: 11rem;
+  height: 9rem;
   resize: none;
   margin-bottom: 2rem;
 }
@@ -605,6 +682,7 @@ nav {
 .show-scroll{
   bottom: 3rem;
 }
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width:320px) {
@@ -796,7 +874,7 @@ nav {
     padding: 1.5rem;
   }
   .contact__form textarea{
-    height: 20rem;
+    height: 8rem;
   }
   .footer{
     padding-block: 4.5rem 4rem;

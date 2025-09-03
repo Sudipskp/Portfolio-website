@@ -45,7 +45,7 @@ const sendEmail = (e) => {
   e.preventDefault()
 
   // serviceID - templateID - #form - publicKey
-  emailjs.sendForm('service_n1nfv22', 'template_jybtw18', '#contact-form', 'KFD4T9AkDrqTIKgmG')
+  emailjs.sendForm('service_wwpcrqd', 'template_jybtw18', '#contact-form', '6lqGEdy7k66sh2PMs')
          .then(() => {
           // Show sent message
           contactMessage.textContent = 'Message sent successfully ✅'
@@ -114,4 +114,29 @@ sr.reveal(`.projects, .projects__card`, {interval: 100})
 
 
 ////-------------------------------------------------------
+//project tabs code 
+
+ const tabs = document.querySelectorAll(".projects__tab");
+    const projects = document.querySelectorAll(".projects__card");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const filter = tab.getAttribute("data-filter");
+
+        projects.forEach(project => {
+          if (filter === "all" || project.getAttribute("data-category") === filter) {
+            project.style.display = "block";
+          } else {
+            project.style.display = "none";
+          }
+        });
+      });
+    });
+
+
+  /// footer year auto update
+  document.getElementById("year").textContent = new Date().getFullYear();
 
