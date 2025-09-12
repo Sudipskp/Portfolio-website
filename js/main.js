@@ -140,3 +140,65 @@ sr.reveal(`.projects, .projects__card`, {interval: 100})
   /// footer year auto update
   document.getElementById("year").textContent = new Date().getFullYear();
 
+
+// Typed text animation
+  (function () {
+      const roles = [
+        'Full-Stack Developer',
+        'Frontend Developer',
+        'Backend Developer',
+        'Web Designer',
+        'Mobile Apps Developer'
+      ];
+
+      const typedEl = document.getElementById('typed');
+      const cursorEl = document.querySelector('.type-cursor');
+
+      const TYPE_SPEED = 100;     // typing speed (ms per character)
+      const DELETE_SPEED = 60;   // deleting speed (ms per character)
+      const PAUSE_AFTER = 1400;  // wait after full text
+      const PAUSE_BEFORE = 500;  // wait before deleting
+
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function tick() {
+        const current = roles[roleIndex];
+        if (!isDeleting) {
+          typedEl.textContent = current.slice(0, ++charIndex);
+          if (charIndex === current.length) {
+            setTimeout(() => {
+              isDeleting = true;
+              tick();
+            }, PAUSE_AFTER);
+            return;
+          }
+          setTimeout(tick, TYPE_SPEED);
+        } else {
+          typedEl.textContent = current.slice(0, --charIndex);
+          if (charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(tick, PAUSE_BEFORE);
+            return;
+          }
+          setTimeout(tick, DELETE_SPEED);
+        }
+      }
+
+      // start animation
+      setTimeout(tick, 400);
+
+      // pause cursor when tab inactive
+      document.addEventListener('visibilitychange', () => {
+        cursorEl.style.animationPlayState = document.hidden ? 'paused' : 'running';
+      });
+    })();
+
+
+
+
+
+
+    
