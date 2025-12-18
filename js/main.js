@@ -147,8 +147,7 @@ sr.reveal(`.projects, .projects__card`, {interval: 100})
         'Full-Stack Developer',
         'Frontend Developer',
         'Backend Developer',
-        'Web Designer',
-        'Mobile Apps Developer'
+        'Web Designer'
       ];
 
       const typedEl = document.getElementById('typed');
